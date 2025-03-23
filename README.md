@@ -1,10 +1,10 @@
 # **MC322 - Turma B**
 
-# **Aluno**
+# **Alunos**
     Ranter Soares
+    João Gabriel
 
 # **Ra**
     186289
-
-# **Curso**
-    Engenharia da computação
+    281255
+    

@@ -12,9 +12,11 @@ public class RoboAereo extends Robo{
     public boolean subir (int metros){
         if(this.altitude + metros <= altitudeMaxima){
             this.altitude =+ metros;
+            System.out.println("Posição alterada");
             return true;
         }
         else{
+            System.out.println("Limite de altitude máxima atingido.");
             return false;
         }
     }
@@ -22,11 +24,17 @@ public class RoboAereo extends Robo{
     public boolean descer (int metros){
         if(this.altitude - metros >= 0){
             this.altitude =+ metros;
+            System.out.println("Posição alterada");
             return true;
         }
         else{
+            System.out.println("Limite de altitude mínima atingido.");
             return false;
         }
+    }
+    @Override
+    public void exibirPosicao(){
+        System.out.println("A posição é\nx:" + this.posicaoX + "\ny:" + this.posicaoY + "\nz:" +this.altitude);
     }
 
 }

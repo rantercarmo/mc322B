@@ -11,9 +11,11 @@ public class RoboTerrestre extends Robo{
         if(velocidade <= this.velocidadeMaxima){
             this.posicaoX += deltaX;
             this.posicaoY += deltaY;
+            System.out.println("Posição alterada");
             return true;
         }
         else{
+            System.out.println("Limite de velocidade atingido.");
             return false;
         }
     }

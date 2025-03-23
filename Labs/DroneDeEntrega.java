@@ -7,10 +7,12 @@ public class DroneDeEntrega extends RoboAereo {
     }
 
     public void setDestino(String destino){
+        System.out.println("Destino alterado");
         this.destino = destino;
     }
 
     public String getDestino(){
+        System.out.println("O destino atual é:" + this.destino);
         return this.destino;
     }
 }

@@ -12,9 +12,11 @@ public class RoboVulcanico extends RoboTerrestre {
         if(velocidade <= this.velocidadeMaxima && temperatura < temperaturaMaxima ){
             this.posicaoX += deltaX;
             this.posicaoY += deltaY;
+            System.out.println("Movimentação realizada");
             return true;
         }
         else{
+            System.out.println("Limite de temperatura não seguro para movimentação.");
             return false;
         }
     }

@@ -10,9 +10,11 @@ public class RoboTransportador extends RoboTerrestre {
     public boolean carregar (int pesoCarga){
         if (pesoCarga + cargaAtual <= cargaMaxima){
             cargaAtual = cargaAtual + pesoCarga;
+            System.out.println("Carregamento realizado.");
             return true;
         }
         else{
+            System.out.println("Falha no carregamento, o peso final é maior que o permitido");
             return false;
         }
     }

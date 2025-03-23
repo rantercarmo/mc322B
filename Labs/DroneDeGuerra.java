@@ -9,10 +9,12 @@ public class DroneDeGuerra extends RoboAereo{
     }
 
     public void setAlvo (String alvo){
+        System.out.println("Alvo atualizado.");
         this.alvo = alvo;
     }
 
     public String getAlvo (){
+        System.out.println("O alvo atual é:" + this.alvo);
         return alvo;
     }
 
