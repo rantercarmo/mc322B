@@ -1,0 +1,19 @@
+public class DroneDeGuerra extends RoboAereo{
+    public String arma;
+    public String alvo;
+
+    public DroneDeGuerra (String nome, int posicaoX, int posicaoY, int altitude, int altitudeMaxima, String alvo, String arma){
+        super(nome, posicaoX, posicaoY, altitude,altitudeMaxima);
+        this.arma = arma;
+        this.alvo = alvo;
+    }
+
+    public void setAlvo (String alvo){
+        this.alvo = alvo;
+    }
+
+    public String getAlvo (){
+        return alvo;
+    }
+
+}

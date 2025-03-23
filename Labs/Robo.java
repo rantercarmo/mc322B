@@ -2,6 +2,7 @@ public class Robo {
     public String nome;
     public int posicaoX;
     public int posicaoY;
+    public String direcao;
 
 
     public Robo(String nome, int posicaoX, int posicaoY){
@@ -26,6 +27,10 @@ public class Robo {
 
     public int getPosicaoY(){
         return this.posicaoY;
+    }
+
+    public void identificarObstaculo(){
+        
     }
     
 }
