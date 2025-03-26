@@ -16,6 +16,7 @@ public class RoboTerrestre extends Robo{
         }
         else{
             System.out.println("Limite de velocidade atingido.");
+            System.out.println("operação cancelada");
             return false;
         }
     }

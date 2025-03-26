@@ -1,0 +1,22 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+public class RoboTerrestre extends Robo {
+   public int velocidadeMaxima;
+
+   public RoboTerrestre(String var1, int var2, int var3, int var4) {
+      super(var1, var2, var3);
+      this.velocidadeMaxima = var4;
+   }
+
+   public boolean mover(int var1, int var2, int var3) {
+      if (var3 <= this.velocidadeMaxima) {
+         this.posicaoX += var1;
+         this.posicaoY += var2;
+         System.out.println("Posição alterada");
+         return true;
+      } else {
+         System.out.println("Limite de velocidade atingido.");
+         System.out.println("operação cancelada");
+         return false;
+      }
+   }
+}
