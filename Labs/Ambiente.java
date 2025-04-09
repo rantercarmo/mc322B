@@ -5,6 +5,7 @@ public class Ambiente {
     public int altura;
     public int altitude;
     public ArrayList<Robo> robos;
+    public ArrayList<Obstaculo> obstaculos;
 
 
     public Ambiente (int largura, int altura, int altitude){
@@ -25,6 +26,12 @@ public class Ambiente {
 
     public void adicionarRobo (Robo robo){
         robos.add(robo);
+        System.out.println("Robo " + robo.nome + " adicionado.");
+    }
+
+    public void removerRobo (Robo robo) {
+        robos.remove(robo);
+        System.out.println("Robo " + robo.nome + " removido.");
     }
 
 }
