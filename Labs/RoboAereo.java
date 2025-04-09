@@ -1,13 +1,14 @@
 public class RoboAereo extends Robo{
     public int altitude;
     public int altitudeMaxima;
+    public SensorAltitude sensorIntegrado;
 
-    public RoboAereo(String nome, int posicaoX, int posicaoY, int altitude, int altitudeMaxima){
+    public RoboAereo(String nome, int posicaoX, int posicaoY, int altitude, int altitudeMaxima, SensorAltitude sensorIntegrado){
         super(nome, posicaoX, posicaoY);
         this.altitude = altitude;
         this.altitudeMaxima = altitudeMaxima;
+        this.sensorIntegrado = sensorIntegrado;
     }
-
 
     public boolean subir (int metros){
         if(this.altitude + metros <= altitudeMaxima){

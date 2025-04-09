@@ -1,9 +1,11 @@
 public class RoboTerrestre extends Robo{
     public int velocidadeMaxima;
+    public SensorProximidade sensor;
 
-    public RoboTerrestre(String nome, int posicaoX, int posicaoY, int velocidadeMaxima){
+    public RoboTerrestre(String nome, int posicaoX, int posicaoY, int velocidadeMaxima, SensorProximidade sensor){
         super(nome, posicaoX, posicaoY);
         this.velocidadeMaxima = velocidadeMaxima;
+        this.sensor = sensor;
     }
 
     public boolean mover(int deltaX, int deltaY, int velocidade){

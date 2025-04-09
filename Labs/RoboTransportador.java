@@ -2,8 +2,8 @@ public class RoboTransportador extends RoboTerrestre {
     public int cargaMaxima; //carga maxima que o robo pode transportar
     public int cargaAtual = 0;
 
-    public RoboTransportador(String nome, int posicaoX, int posicaoY, int velocidadeMaxima, int cargaMaxima){
-        super(nome, posicaoX, posicaoY, velocidadeMaxima);
+    public RoboTransportador(String nome, int posicaoX, int posicaoY, int velocidadeMaxima, int cargaMaxima, SensorProximidade sensor){
+        super(nome, posicaoX, posicaoY, velocidadeMaxima, sensor);
         this.cargaMaxima = cargaMaxima;
     }
 

@@ -1,14 +1,23 @@
 public class Main {
 
     public static void main(String[] args){
+        SensorAltitude sensorAereo = new SensorAltitude(400, 50);
+        SensorProximidade sensorTerrestre = new SensorProximidade(120);
+
         Ambiente a1 = new Ambiente(2000, 2000,1000);
         Robo r1 = new Robo("teste",0,0);
-        RoboTerrestre r2 = new RoboTerrestre("Carlinhos", 0, 0, 50);
-        RoboAereo r3 = new RoboAereo("Pedrinho", 0, 0, 0, 10);
-        RoboTransportador r4 = new RoboTransportador("Pedrito", 0, 0, 0, 20);
-        RoboVulcanico r5 = new RoboVulcanico("Robozito", 0, 0, 300, 300);
-        DroneDeEntrega r6 = new DroneDeEntrega("dronizito", 0, 0, 0, 400, "-22.815223, -47.079451");
-        DroneDeGuerra r7 = new DroneDeGuerra("Mala", 0, 0, 0, 300,  "-22.815223, -47.079451", "Ak-47");
+        RoboTerrestre r2 = new RoboTerrestre("Carlinhos", 0, 0, 50, sensorTerrestre);
+        RoboAereo r3 = new RoboAereo("Pedrinho", 0, 0, 0, 10, sensorAereo);
+        RoboTransportador r4 = new RoboTransportador("Pedrito", 0, 0, 0, 20, sensorTerrestre);
+        RoboVulcanico r5 = new RoboVulcanico("Robozito", 0, 0, 300, 300, sensorTerrestre);
+        DroneDeEntrega r6 = new DroneDeEntrega("dronizito", 0, 0, 0, 400, "-22.815223, -47.079451", sensorAereo);
+        DroneDeGuerra r7 = new DroneDeGuerra("Mala", 0, 0, 0, 300,  "-22.815223, -47.079451", "Ak-47", sensorAereo);
+
+        a1.adicionarObstaculo("buraco", 45, 28);
+        a1.adicionarObstaculo("torre", 50, 578);
+        a1.adicionarObstaculo("pedra", 450, 120);
+        a1.adicionarObstaculo("morrinho", 34, 567);
+        a1.adicionarObstaculo("buraco", 68, 150);
 
         r1.mover(4,4);
         a1.dentroDosLimites(r1.getPosicaoX(), r1.getPosicaoY(),0);

@@ -2,8 +2,8 @@
 public class RoboVulcanico extends RoboTerrestre {
     public int temperaturaMaxima;
 
-    public RoboVulcanico(String nome, int posicaoX, int posicaoY, int velocidadeMaxima, int temperaturaMaxima){
-        super(nome, posicaoX, posicaoY, velocidadeMaxima);
+    public RoboVulcanico(String nome, int posicaoX, int posicaoY, int velocidadeMaxima, int temperaturaMaxima, SensorProximidade sensor){
+        super(nome, posicaoX, posicaoY, velocidadeMaxima, sensor);
         this.temperaturaMaxima = temperaturaMaxima;
     }
 

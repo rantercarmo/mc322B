@@ -12,6 +12,8 @@ public class Ambiente {
         this.largura  = largura;
         this.altura = altura;
         this.altitude = altitude;
+        this.robos = new ArrayList<Robo>();
+        this.obstaculos = new ArrayList<Obstaculo>();
     }
 
     public boolean dentroDosLimites (int x, int y, int z){
@@ -34,4 +36,28 @@ public class Ambiente {
         System.out.println("Robo " + robo.nome + " removido.");
     }
 
+    // Adiciona obstaculo ao ambiente
+    public void adicionarObstaculo (String tipo, int x, int y) { // uso: tipo de obstaculo digitado, sem acentos, com coordenadas nos eixos x e y
+        if (tipo == "torre") {
+            Obstaculo novo = Obstaculo.TORRE;
+            novo.posX = x;
+            novo.posY = y;
+            obstaculos.add(novo);
+        } else if (tipo == "buraco") {
+            Obstaculo novo = Obstaculo.BURACO;
+            novo.posX = x;
+            novo.posY = y;
+            obstaculos.add(novo);
+        } else if (tipo == "pedra") {
+            Obstaculo novo = Obstaculo.PEDRA;
+            novo.posX = x;
+            novo.posY = y;
+            obstaculos.add(novo);
+        } else {
+            Obstaculo novo = Obstaculo.MORRINHO;
+            novo.posX = x;
+            novo.posY = y;
+            obstaculos.add(novo);
+        }
+    }
 }

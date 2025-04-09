@@ -2,8 +2,8 @@ public class DroneDeGuerra extends RoboAereo{
     public String arma;
     public String alvo;
 
-    public DroneDeGuerra (String nome, int posicaoX, int posicaoY, int altitude, int altitudeMaxima, String alvo, String arma){
-        super(nome, posicaoX, posicaoY, altitude,altitudeMaxima);
+    public DroneDeGuerra (String nome, int posicaoX, int posicaoY, int altitude, int altitudeMaxima, String alvo, String arma, SensorAltitude sensor){
+        super(nome, posicaoX, posicaoY, altitude,altitudeMaxima, sensor);
         this.arma = arma;
         this.alvo = alvo;
     }
