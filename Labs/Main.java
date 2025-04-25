@@ -14,7 +14,7 @@ public class Main {
         DroneDeGuerra r7 = new DroneDeGuerra("Mala", 0, 0, 0, 300,  "-22.815223, -47.079451", "Ak-47", sensorAereo);
 
         a1.adicionarObstaculo("buraco", 45, 28);
-        a1.adicionarObstaculo("torre", 50, 578);
+        a1.adicionarObstaculo("torre", 10, 10);
         a1.adicionarObstaculo("pedra", 450, 120);
         a1.adicionarObstaculo("morrinho", 34, 567);
         a1.adicionarObstaculo("buraco", 68, 150);
@@ -29,10 +29,16 @@ public class Main {
         r7.getAlvo();
         r2.mover(2, 1, 2);
         r3.subir(4);
-        r6.subir(8);
+        r6.subir(400);
         r7.subir(10);
+        r3.subir(6);
 
-
+        r2.sensor.monitorar();
+        r3.sensorIntegrado.monitorar(r3.altitude);
+        r4.sensor.monitorar();
+        r5.sensor.monitorar();
+        r6.sensorIntegrado.monitorar(r6.altitude);
+        r7.sensorIntegrado.monitorar(r7.altitude);
 
         r1.exibirPosicao();
         r2.exibirPosicao();
@@ -43,5 +49,4 @@ public class Main {
         r7.exibirPosicao();
         
     }
-
 }
