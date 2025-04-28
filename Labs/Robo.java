@@ -1,5 +1,5 @@
 public class Robo {
-    public String nome;
+    public final String nome;
     public int posicaoX;
     public int posicaoY;
     public String direcao;
@@ -18,19 +18,14 @@ public class Robo {
     }
 
     public void exibirPosicao(){
-        System.out.println("A posição é\nx:" + this.posicaoX + "\ny:" +this.posicaoY );
+        System.out.println("A posição é\nx:" + getPosicaoX() + "\ny:" + getPosicaoY() );
     }
 
-    public int getPosicaoX(){
+    protected int getPosicaoX(){
         return this.posicaoX;
     }
 
-    public int getPosicaoY(){
+    protected int getPosicaoY(){
         return this.posicaoY;
     }
-
-    public void identificarObstaculo(){
-        
-    }
-    
 }

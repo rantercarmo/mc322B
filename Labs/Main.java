@@ -13,6 +13,14 @@ public class Main {
         DroneDeEntrega r6 = new DroneDeEntrega("dronizito", 0, 0, 0, 400, "-22.815223, -47.079451", sensorAereo);
         DroneDeGuerra r7 = new DroneDeGuerra("Mala", 0, 0, 0, 300,  "-22.815223, -47.079451", "Ak-47", sensorAereo);
 
+        a1.adicionarRobo(r1);
+        a1.adicionarRobo(r2);
+        a1.adicionarRobo(r3);
+        a1.adicionarRobo(r4);
+        a1.adicionarRobo(r5);
+        a1.adicionarRobo(r6);
+        a1.adicionarRobo(r7);
+
         a1.adicionarObstaculo("buraco", 45, 28);
         a1.adicionarObstaculo("torre", 10, 10);
         a1.adicionarObstaculo("pedra", 450, 120);
@@ -33,20 +41,21 @@ public class Main {
         r7.subir(10);
         r3.subir(6);
 
-        r2.sensor.monitorar();
-        r3.sensorIntegrado.monitorar(r3.altitude);
-        r4.sensor.monitorar();
-        r5.sensor.monitorar();
-        r6.sensorIntegrado.monitorar(r6.altitude);
-        r7.sensorIntegrado.monitorar(r7.altitude);
+        MenuInterativo NovoMenu = new MenuInterativo();
 
-        r1.exibirPosicao();
-        r2.exibirPosicao();
-        r3.exibirPosicao();
-        r4.exibirPosicao();
-        r5.exibirPosicao();
-        r6.exibirPosicao();
-        r7.exibirPosicao();
-        
+        while (true) {
+            NovoMenu.Iniciar();
+            NovoMenu.In = NovoMenu.UserIn.nextLine();
+
+            if (NovoMenu.In.equals("/s")) {
+                NovoMenu.Sensores(a1.robos);
+            } else if (NovoMenu.In.equals("/st")) {
+                NovoMenu.Status(a1.robos, a1.obstaculos);
+            } else if (NovoMenu.In.equals("/m")) {
+                NovoMenu.Movimento(a1.robos);
+            } else if (NovoMenu.In.equals("/e")) {
+                break;
+            }
+        }
     }
 }

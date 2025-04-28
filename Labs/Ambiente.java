@@ -1,12 +1,11 @@
 import java.util.ArrayList;
 
 public class Ambiente {
-    public int largura;
-    public int altura;
+    public final int largura;
+    public final int altura;
     public int altitude;
     public ArrayList<Robo> robos;
     public ArrayList<Obstaculo> obstaculos;
-
 
     public Ambiente (int largura, int altura, int altitude){
         this.largura  = largura;
