@@ -59,4 +59,52 @@ public class Ambiente {
             obstaculos.add(novo);
         }
     }
+
+    public void imprimirMapa() {
+        ArrayList<ArrayList<Character>> mapa = criarMapa();
+        
+        for (int i = 0; i < altura; i++) {
+            for (int j = 0; j < largura; j++) {
+                System.out.print(mapa.get(i).get(j) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private ArrayList<ArrayList<Character>> criarMapa() {
+        ArrayList<ArrayList<Character>> mapa = new ArrayList<>();
+        
+        for (int i = 0; i < altura; i++) {
+
+            ArrayList<Character> linha = new ArrayList<>();
+            for (int j = 0; j < largura; j++) {
+                Boolean temRobo = false;
+                Boolean temObstaculo = false;
+
+                for (int z = 0; z < robos.size(); z++) {
+                    Robo robo = robos.get(z);
+                    if (robo.getPosicaoX() == j && robo.getPosicaoY() == i) {
+                        linha.add('R'); // Representa um robô
+                        temRobo = true;
+                        break; // Se já encontrou um robô, não precisa verificar mais
+                    }
+                }
+                if (!temRobo) {
+                    for (int y = 0; y < obstaculos.size(); y++) {
+                        Obstaculo obstaculo = obstaculos.get(y);
+                        if (obstaculo.posX == j && obstaculo.posY == i) {
+                            linha.add('O'); // Representa um obstáculo
+                            temObstaculo = true;
+                            break; // Se já encontrou um obstáculo, não precisa verificar mais
+                        }
+                    }
+                    if (!temObstaculo) {
+                        linha.add('_'); // Representa um espaço vazio
+                    }
+                }
+                mapa.add(linha);
+            }
+        }
+        return mapa;
+    }
 }

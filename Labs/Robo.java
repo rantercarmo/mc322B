@@ -1,4 +1,4 @@
-public class Robo {
+public class Robo implements RoboInterface {
     public final String nome;
     public int posicaoX;
     public int posicaoY;
