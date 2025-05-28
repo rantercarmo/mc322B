@@ -7,7 +7,7 @@ public class MenuInterativo {
     
     // Texto inicial do menu interativo com instruções
     public void Iniciar () {
-        System.out.println("\n\nSEJA BEM VINDO AO CONSOLE DE CONTROLE DE AUTÔMATOS MEGALOTRON v2.0 \nLISTA DE COMANDOS:\n-para adicionar um robô ao mapa: /add\n-visualizar status de robos e ambiente: /st\n-controle de movimento dos robos: /m\n-uso dos sensores: /s\n-para imprimir o mapa: /pr\n-sair: /e\n\nPor favor, entre com um comando: ");
+        System.out.println("\n\nSEJA BEM VINDO AO CONSOLE DE CONTROLE DE AUTÔMATOS MEGALOTRON v2.0 \nLISTA DE COMANDOS:\n-adicionar um obstaculo ao mapa: /obs\n-adicionar um robô ao mapa: /add\n-visualizar status de robos e ambiente: /st\n-controle de movimento dos robos: /m\n-uso dos sensores: /s\n-para imprimir o mapa: /pr\n-sair: /e\n\nPor favor, entre com um comando: ");
     }
 
     // funcao para que o usuario veja os status dos robos presentes no ambiente
@@ -33,6 +33,7 @@ public class MenuInterativo {
             // tipo de obstaculo no enum
             System.out.println("\nTipo de obstaculo: " + obstaculo.getClass() + "\nRaio do obstaculo: " + obstaculo.tamanhoX + "\nAltura do obstaculo: " + obstaculo.tamanhoZ + "\nCoordenadas do obstaculo no ambiente: (" + obstaculo.posX + "," + obstaculo.posY + ")");
         }
+    
         Espera();
     }
 
@@ -221,8 +222,34 @@ public class MenuInterativo {
                 mapa.adicionarRobo(DroneGuerra); // adiciona o drone de guerra a listagem do ambiente
                 break;
         }
-
         Espera();
+    }
+
+    public void addObstaculo (Ambiente mapa) {
+        System.out.println("Digite as coordenadas, no mapa, que o obstaculo deve estar: \nX: ");
+        int posX = UserIn.nextInt();
+        UserIn.nextLine();
+
+        System.out.println("Y: ");
+        int posY = UserIn.nextInt();
+
+        System.out.println("\nDigite o tipo de obstáculo que deseja adicionar: \n1. TORRE\n2. BURACO\n3. PEDRA\n4. MORRO PEQUENO\n"); 
+        int tipoObstaculo = UserIn.nextInt(); // avalia o tipo de obstaculo que o usuario deseja adicionar 
+        UserIn.nextLine(); // limpa o buffer do teclado
+
+        switch (tipoObstaculo) {
+            case 1:
+                mapa.adicionarObstaculo("torre", posX, posY);
+            case 2: 
+                mapa.adicionarObstaculo("buraco", posX, posY);
+            case 3: 
+                mapa.adicionarObstaculo("pedra", posX, posY);
+            case 4:
+                mapa.adicionarObstaculo("morrinho", posX, posY);
+        }
+        System.out.println("\nObstaculo adicionado com sucesso!");
+        Espera();
+        return;
     }
 
     private void Espera() {

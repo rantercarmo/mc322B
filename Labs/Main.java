@@ -2,13 +2,6 @@ public class Main {
 
     public static void main(String[] args){
         Ambiente a1 = new Ambiente(10, 10,100);
-        
-        a1.adicionarObstaculo("buraco", 45, 28);
-        a1.adicionarObstaculo("torre", 10, 10);
-        a1.adicionarObstaculo("pedra", 450, 120);
-        a1.adicionarObstaculo("morrinho", 34, 567);
-        a1.adicionarObstaculo("buraco", 68, 150);
-
         MenuInterativo NovoMenu = new MenuInterativo();
 
         a1.imprimirMapa();
@@ -27,6 +20,8 @@ public class Main {
                 NovoMenu.Imprimir(a1);
             } else if (NovoMenu.In.equals("/add")){
                 NovoMenu.AddRobo(a1);
+            } else if (NovoMenu.In.equals("/obs")) {
+                NovoMenu.addObstaculo(a1);
             } else if (NovoMenu.In.equals("/e")) {
                 break;
             }

@@ -75,7 +75,6 @@ public class Ambiente {
         ArrayList<ArrayList<Character>> mapa = new ArrayList<>();
         
         for (int i = 0; i < altura; i++) {
-
             ArrayList<Character> linha = new ArrayList<>();
             for (int j = 0; j < largura; j++) {
                 Boolean temRobo = false;
@@ -102,8 +101,8 @@ public class Ambiente {
                         linha.add('_'); // Representa um espaço vazio
                     }
                 }
-                mapa.add(linha);
             }
+            mapa.add(linha);
         }
         return mapa;
     }
