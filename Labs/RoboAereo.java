@@ -1,40 +1,29 @@
 public class RoboAereo extends Robo{
-    public int altitude;
     public int altitudeMaxima;
+    public SensorAltitude sensorIntegrado;
 
-    public RoboAereo(String nome, int posicaoX, int posicaoY, int altitude, int altitudeMaxima){
-        super(nome, posicaoX, posicaoY);
-        this.altitude = altitude;
+    public RoboAereo(String nome, int posicaoX, int posicaoY, int posicaoZ, int altitudeMaxima, SensorAltitude sensorIntegrado){
+        super(nome, posicaoX, posicaoY, posicaoZ);
         this.altitudeMaxima = altitudeMaxima;
+        this.sensorIntegrado = sensorIntegrado;
     }
 
+    //implementando funcs de Entidade
 
-    public boolean subir (int metros){
-        if(this.altitude + metros <= altitudeMaxima){
-            this.altitude =+ metros;
-            System.out.println("Posição alterada");
-            return true;
-        }
-        else{
-            System.out.println("Limite de altitude máxima atingido.");
-            return false;
-        }
-    }
-
-    public boolean descer (int metros){
-        if(this.altitude - metros >= 0){
-            this.altitude =+ metros;
-            System.out.println("Posição alterada");
-            return true;
-        }
-        else{
-            System.out.println("Limite de altitude mínima atingido.");
-            return false;
-        }
-    }
     @Override
-    public void exibirPosicao(){
-        System.out.println("A posição é\nx:" + this.posicaoX + "\ny:" + this.posicaoY + "\nz:" +this.altitude);
+    public TipoEntidade getTipo(){
+        return TipoEntidade.ROBO;
     }
+
+    @Override
+    public String getDescricao(){
+        return "Robo Aéreo " + nome + " na posição (" + getX() + "," + getY() + "," + getZ() + ")";
+    }
+
+    @Override
+    public char getRepresentacao(){
+        return 'A';
+    }
+
 
 }

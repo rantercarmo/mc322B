@@ -1,36 +1,54 @@
-public class Robo {
-    public String nome;
-    public int posicaoX;
-    public int posicaoY;
+public abstract class Robo implements Entidade {
+    public final String nome;
+    public int posicaoX = 0;
+    public int posicaoY = 0;
+    public int posicaoZ = 0;
     public String direcao;
 
 
-    public Robo(String nome, int posicaoX, int posicaoY){
+    public Robo(String nome, int posicaoX, int posicaoY, int posicaoZ){
         this.nome = nome;
         this.posicaoX = posicaoX;
         this.posicaoY = posicaoY;
+        this.posicaoZ = posicaoZ;
     }
 
+    //getters e setters
+     // Implementação dos métodos da interface Entidade
+    @Override
+    public abstract String getDescricao();
 
-    public void mover(int deltaX, int deltaY){
-        this.posicaoX += deltaX;
-        this.posicaoY += deltaY;
-    }
+    @Override
+    public abstract char getRepresentacao();
 
-    public void exibirPosicao(){
-        System.out.println("A posição é\nx:" + this.posicaoX + "\ny:" +this.posicaoY );
-    }
+    @Override
+    public abstract TipoEntidade getTipo();
 
-    public int getPosicaoX(){
+    @Override
+    public int getX() {
         return this.posicaoX;
     }
 
-    public int getPosicaoY(){
+    @Override
+    public int getY() {
         return this.posicaoY;
     }
 
-    public void identificarObstaculo(){
-        
+    @Override
+    public int getZ() {
+        return this.posicaoZ;
     }
-    
+
+
+    @Override
+    public void mover(int deltaX, int deltaY, int deltaZ){
+        this.posicaoX += deltaX;
+        this.posicaoY += deltaY;
+        this.posicaoZ += deltaZ;
+    }
+
+    public void exibirPosicao(){
+        System.out.println("A posição é\nx:" + getX() + "\ny:" + getY() + "\nz:" + getZ() );
+    }
+   
 }
