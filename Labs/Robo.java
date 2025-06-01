@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 public abstract class Robo implements Entidade {
+=======
+public class Robo implements RoboInterface {
+>>>>>>> ce5e6d26f89143468f134c545aa8cc7b6bbc1793
     public final String nome;
     public int posicaoX = 0;
     public int posicaoY = 0;
