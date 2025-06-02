@@ -1,98 +1,61 @@
-public enum Obstaculo implements Entidade {
-    // Atributos individuais de cada tipo de obstáculo. Todos eles possuem forma circular, logo o tamanhoX representa seu diametro e o tamanhoZ representa sua altura
-    TORRE (8, 13),
-    BURACO (0, 4),
-    PEDRA (2, 2),
-    MORRINHO (9, 8),
-    BALAO (8,5);
+import java.util.Objects;
 
-    public final int tamanhoX;
-    public final int tamanhoZ;
-    public int posX; // posicao X no mapa que o objeto pode ser adicionado
-    public int posY; // posicao Y no mapa que o objeto pode ser adicionado
-    public int posZ;
+public class Obstaculo implements Entidade {
+    private static int contadorIds = 0;
+    private final int idInterno;
+    private int x, y, z;
+    private String nomeTipo; 
+    private char representacaoVisual;
 
-
-
-    Obstaculo (int tamanhoX, int tamanhoZ) {
-        this.tamanhoX = tamanhoX;
-        this.tamanhoZ = tamanhoZ;
-    }
-
-    // Registro da posicao do obstaculo no mapa
-    public void AddObst (int X, int Y) {
-        posX = X;
-        posY = Y;
-    }
-
-    // Avalia se o objeto pode bloquear a passagem do robo
-    public boolean bloqueiaPassagem (int Xpretendido, int Ypretendido, int Zpretendido, String tipoRobo) {
-        if (tipoRobo == "aereo") {
-            if (((posX - Xpretendido) * (posX - Xpretendido) < tamanhoX * tamanhoX) && Zpretendido < tamanhoZ) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            if ((posX - Xpretendido) * (posX - Xpretendido) < tamanhoX * tamanhoX) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    // area do objeto
-    public String Area () {
-        double A = 3.14 * tamanhoX * tamanhoX / 4;
-        String Area = A + "m2";
-        return Area;
-    }
-
-    // altura do objeto
-    public int Altura () {
-        return tamanhoZ;
+    public Obstaculo(String nomeTipo, int x, int y, int z, char representacaoVisual) {
+        this.idInterno = contadorIds++;
+        this.nomeTipo = nomeTipo;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.representacaoVisual = representacaoVisual;
     }
 
     @Override
-    public int getX() {
-        return this.posX;
-    }
-
+    public int getX() { return x; }
     @Override
-    public int getY() {
-         return this.posY;
-    }
-
+    public int getY() { return y; }
     @Override
-    public int getZ() {
-        return this.posZ;
-    }
+    public int getZ() { return z; }
 
     @Override
     public TipoEntidade getTipo() {
-        return TipoEntidade.OBSTACULO; 
+        return TipoEntidade.OBSTACULO;
     }
 
     @Override
     public String getDescricao() {
-           return "Obstaculo na posição (" + getX() + "," + getY() + "," + getZ() + ")";
+        return nomeTipo + " (ID_Obs:" + idInterno + ") em (" + x + "," + y + "," + z + ")";
     }
 
     @Override
     public char getRepresentacao() {
-       return 'O';
+        return representacaoVisual;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Obstaculo obstaculo = (Obstaculo) o;
+        // Dois obstáculos são considerados iguais se tiverem o mesmo ID interno e tipo.
+        // A posição não entra aqui, pois o ID deve ser único para a lista de entidades.
+        return idInterno == obstaculo.idInterno && Objects.equals(nomeTipo, obstaculo.nomeTipo);
     }
 
     @Override
-    public void mover(int deltaX, int deltaY, int deltaZ) {
-        this.posX =+ deltaX;
-        this.posY =+ deltaY;   
-        this.posY =+ deltaY;       
+    public int hashCode() {
+        return Objects.hash(idInterno, nomeTipo);
     }
 
     @Override
-    public void exibirPosicao(){
-        System.out.println("A posição é\nx:" + getX() + "\ny:" + getY() + "\nz:" + getY() );
+    public String toString() {
+        return getDescricao();
     }
 }
